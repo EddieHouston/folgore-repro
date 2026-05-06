@@ -1,0 +1,7 @@
+[package]
+name = "folgore-repro"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+esplora-api = { git = "https://github.com/dev-crew-host/btc-utils.git" }
