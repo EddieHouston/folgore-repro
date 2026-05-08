@@ -1,6 +1,6 @@
 # folgore-repro
 
-Minimal reproducer for [coffee-tools/folgore#100](https://github.com/coffee-tools/folgore/issues/100) — folgore's esplora backend panics with `ParseIntError { kind: InvalidDigit }` when `GET /blocks/tip/height` returns a non-numeric body with HTTP 200.
+Minimal code to attemp to reproduce [coffee-tools/folgore#100](https://github.com/coffee-tools/folgore/issues/100) — folgore's esplora backend panics with `ParseIntError { kind: InvalidDigit }` when `GET /blocks/tip/height` returns a non-numeric body with HTTP 200.
 
 Uses the same [`esplora-api`](https://github.com/dev-crew-host/btc-utils) crate and the same call chain as folgore (pre-fix):
 
@@ -44,3 +44,4 @@ Done. No panic encountered.
 - **Fix**: https://github.com/coffee-tools/folgore/pull/102
 - First seen around Sep 23, 2025 in Core Lightning nodes using folgore as a bitcoin backend
 - The fix converts `raw_to_num` to return `Result` instead of panicking, so the recovery strategy can retry
+- **Update**: So far are unable to reproduce this issue
